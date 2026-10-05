@@ -19,6 +19,8 @@ This project adds:
 - **Battery voltage monitoring** with low-battery auto-shutdown to protect your LiPo
 - **LittleFS flash logging** — CSV data, readable over USB serial
 - **Zero modifications to the original circuit** — as a hardware purist guy, the analog meter, speaker click and LED all work exactly as Heathkit intended in 1976
+- 
+<img width="1322" height="862" alt="Kicad_Sch" src="https://github.com/Retro-Fitt/Radiation-Monitor-RM-4-Geiger-Counter-Retrofit/blob/main/Hardware/RM-4_3D/3D.jpg" />
 
 ---
 
@@ -30,11 +32,15 @@ The entire digital side listens to a single wire: **U1 pin 3** (ICM7555 monostab
 
 The RM-4's signal chain goes:
 
-ADD KICAD IMAGE
+<img width="1322" height="862" alt="Kicad_Sch" src="https://github.com/Retro-Fitt/Radiation-Monitor-RM-4-Geiger-Counter-Retrofit/blob/main/Hardware/Kicad_Sch.jpg" />
+
+
+<img width="1322" height="862" alt="Kicad_Sch" src="https://github.com/Retro-Fitt/Radiation-Monitor-RM-4-Geiger-Counter-Retrofit/blob/main/Hardware/Connection_Scheme.png" />
+
 
 The ICM7555 produces clean, fixed-width (~10–15 ms), CMOS-level pulses — one per radiation event. Scope-verified: Vpp = 8.20 V, no ringing, no bounce. It's the cleanest signal in the whole instrument and it was already there.
+<img width="1322" height="862" alt="Kicad_Sch" src="https://github.com/Retro-Fitt/Radiation-Monitor-RM-4-Geiger-Counter-Retrofit/blob/main/Hardware/Scope_Shot.jpg" />
 
-ADD SCOPE IMAGE
 
 ### Level Shifter
 
