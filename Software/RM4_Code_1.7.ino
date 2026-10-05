@@ -141,10 +141,10 @@ void lowBatteryShutdown() {
   display.print("LOW BAT!");
   display.setTextSize(1);
   display.setCursor(10, 22);
-  display.print("Sarj edin / Charge");
+  display.print("Please Charge");
   display.display();
 
-  Serial.println("[SHUTDOWN] Pil dusuk! Kapaniyor.");
+  Serial.println("Low battery! Shutting Down.");
 
   delay(3000);
 
@@ -183,9 +183,9 @@ void logData(unsigned long uptimeS, float cpmAvg, float cpmFast, float mrhr, flo
   File chk = LittleFS.open("/rm4log.csv", "r");
   bool full = chk && (chk.size() >= LOG_MAX_BYTES);
   if (chk) chk.close();
-  if (full) { Serial.println("[LOG] 500KB doldu. 'd' ile sil."); return; }
+  if (full) { Serial.println("[LOG] 500KB full. Press 'd' for delete."); return; }
   File f = LittleFS.open("/rm4log.csv", "a");
-  if (!f) { Serial.println("[LOG] Dosya acilamadi!"); return; }
+  if (!f) { Serial.println("[LOG] File cannot opened"); return; }
   f.print(uptimeS);     f.print(",");
   f.print(cpmAvg, 1);   f.print(",");
   f.print(cpmFast, 1);  f.print(",");
@@ -197,12 +197,12 @@ void logData(unsigned long uptimeS, float cpmAvg, float cpmFast, float mrhr, flo
 
 void dumpLog() {
   File f = LittleFS.open("/rm4log.csv", "r");
-  if (!f) { Serial.println("[LOG] Dosya yok."); return; }
-  Serial.println("=== RM-4 LOG BASLANGIC ===");
+  if (!f) { Serial.println("[LOG] No file"); return; }
+  Serial.println("=== RM-4 LOG START ===");
   uint8_t buf[64];
   while (int n = f.read(buf, sizeof(buf))) Serial.write(buf, n);
   f.close();
-  Serial.println("\n=== RM-4 LOG BITIS ===");
+  Serial.println("\n=== RM-4 LOG END ===");
 }
 
 // ─── Display ──────────────────────────────────────────────────────────────────
@@ -261,7 +261,7 @@ void setup() {
   pinMode(BAT_PIN, INPUT);
 
   if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
-    Serial.println("SSD1306 bulunamadi!"); for (;;);
+    Serial.println("SSD1306 is missing"); for (;;);
   }
 
   // ── Startup screen (bitmap on the left, text on the right — no overlap) ────
@@ -284,7 +284,7 @@ void setup() {
   lastBatCheckMs = millis();
 
   initLog();
-  Serial.println("Komutlar: 'r'=log oku | 'd'=log sil");
+  Serial.println("Commands: 'r'=read log | 'd'=delete log");
 
   memset((void*)timestamps, 0, sizeof(timestamps));
   pinMode(GEIGER_PIN, INPUT_PULLUP);
@@ -301,10 +301,10 @@ if (Serial.available()) {
   if      (cmd == 'r') dumpLog();
   else if (cmd == 'd') {
     LittleFS.remove("/rm4log.csv"); initLog();
-    Serial.println("[LOG] Silindi.");
+    Serial.println("[LOG] Deleted");
   }
   else if (cmd == 'b') {           // ← ADD THIS LINE
-    Serial.println("Bootloader moduna giriliyor...");
+    Serial.println("Entering Bootloader Mode...");
     delay(100);                    // Short delay to allow the Serial message to be sent
     rp2040.rebootToBootloader();   // Appears as an RPI-RP2 drive
   }
