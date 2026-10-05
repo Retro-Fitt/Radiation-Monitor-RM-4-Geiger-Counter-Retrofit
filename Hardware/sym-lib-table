@@ -1,0 +1,5 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "1N5231B")(type "KiCad")(uri "${KIPRJMOD}/LIBS/1N5231B.kicad_sym")(options "")(descr ""))
+  (lib (name "CA3046")(type "KiCad")(uri "${KIPRJMOD}/LIBS/CA3046.kicad_sym")(options "")(descr ""))
+)
