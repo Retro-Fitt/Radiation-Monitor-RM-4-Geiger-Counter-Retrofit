@@ -192,7 +192,6 @@ RP2040 GP1  → OLED SCL
 RP2040 GP2  → Level shifter drain (pulse input)
 RP2040 GP26 → Voltage divider midpoint (ADC)
 RP2040 GND  → RM-4 GND (single shared ground)
-RM-4 supply → separate 9V battery (not connected to RP2040 power rail)
 ```
 
 ---
@@ -201,7 +200,7 @@ RM-4 supply → separate 9V battery (not connected to RP2040 power rail)
 
 > *Non-invasive or nothing.*
 
-The RM-4 is a well-engineered piece of Cold War-era test equipment. It deserves to keep working as designed. This retrofit adds capability without subtracting anything — the needle swings, the speaker clicks, and the original front panel is unchanged.
+The RM-4 is a well-engineered piece of Cold War-era test equipment. Also ghostbusters movie prop. It deserves to keep working as designed. This retrofit adds capability without subtracting anything — the needle swings, the speaker clicks, and the original front panel is unchanged.
 
 If you remove the RP2040 and OLED tomorrow, the RM-4 works exactly as it did the day it came off the Heathkit assembly line.
 
@@ -219,7 +218,8 @@ This project is licensed under:
 
 ---
 
-Go forth and monitor responsibly.
 *Built with: KiCad · Arduino-Pico · Adafruit GFX · LittleFS · one oscilloscope · excessive amounts of coffee*
 
-*Calibration factor CPM_TO_MRHR is a placeholder. The author accepts no liability for decisions made based on uncalibrated mR/hr readings. Please do NOT use this device as your sole means of radiation safety assessment in environments where that actually matters. Work safe work smart.*
+*Calibration factor CPM_TO_MRHR is a placeholder. The author accepts no liability for decisions made based on uncalibrated mR/hr readings. Please do NOT use this device as your sole means of radiation safety assessment in environments where that actually matters. Work safe, work smart.*
+
+Go forth and monitor responsibly.
