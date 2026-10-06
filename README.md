@@ -19,7 +19,7 @@ This project adds:
 - **Battery voltage monitoring** with low-battery auto-shutdown to protect your LiPo
 - **LittleFS flash logging** — CSV data, readable over USB serial
 - **Zero modifications to the original circuit** — as a hardware purist guy, the analog meter, speaker click and LED all work exactly as Heathkit intended in 1976
-- 
+
 <img width="1322" height="862" alt="Kicad_Sch" src="https://github.com/Retro-Fitt/Radiation-Monitor-RM-4-Geiger-Counter-Retrofit/blob/main/Hardware/RM-4_3D/3D.jpg" />
 
 ---
@@ -209,14 +209,15 @@ If you remove the RP2040 and OLED tomorrow, the RM-4 works exactly as it did the
 
 This project is licensed under:
 
-- **Non-Commercial License for personal, educational, and hobby use. You may build, modify, and use the hardware for non-commercial purposes. Manufacturing or selling the PCB/FPC or assembled product is not permitted.
+- Non-Commercial License for personal, educational, and hobby use. You may build, modify, and use the hardware for non-commercial purposes. Manufacturing or selling the PCB/FPC or assembled product is not permitted.
 
-- **Commercial license available upon request. Please contact the author for commercial manufacturing, distribution, or sales.
+- Commercial license available upon request. Please contact the author for commercial manufacturing, distribution, or sales.
 
-Go forth and monitor responsibly.
+
 
 ---
 
+Go forth and monitor responsibly.
 *Built with: KiCad · Arduino-Pico · Adafruit GFX · LittleFS · one oscilloscope · excessive amounts of coffee*
 
 *Calibration factor CPM_TO_MRHR is a placeholder. The author accepts no liability for decisions made based on uncalibrated mR/hr readings. Please do NOT use this device as your sole means of radiation safety assessment in environments where that actually matters. Work safe work smart.*
